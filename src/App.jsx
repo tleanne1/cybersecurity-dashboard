@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from './components/Sidebar'
 import Header from './components/Header'
 import DashboardCards from './components/DashboardCards'
+import ThreatChart from './components/ThreatChart'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <Header />
         <main className="flex-1 p-10">
           <DashboardCards />
+          <ThreatChart />
         </main>
       </div>
     </div>

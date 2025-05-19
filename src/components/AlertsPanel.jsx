@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const alerts = [
   {
@@ -33,7 +34,14 @@ const AlertsPanel = () => {
       <h3 className="text-xl font-semibold mb-4">🚨 Recent Security Alerts</h3>
       <ul className="space-y-4">
         {alerts.map((alert, index) => (
-          <li key={index} className="flex items-center justify-between p-4 rounded-lg bg-gray-800">
+          <motion.li
+            key={index}
+            className="flex items-center justify-between p-4 rounded-lg bg-gray-800"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            viewport={{ once: true }}
+          >
             <div>
               <p className="font-semibold">{alert.title}</p>
               <p className="text-sm text-gray-400">{alert.time}</p>
@@ -41,7 +49,7 @@ const AlertsPanel = () => {
             <span className={`px-3 py-1 rounded-full text-sm font-medium ${alert.color}`}>
               {alert.severity}
             </span>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </div>
